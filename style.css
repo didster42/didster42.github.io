@@ -1,0 +1,401 @@
+body
+{
+    margin: 0;
+    font-family: 'Lato';
+    /* background: rgb(5 40 39); */
+}
+
+.home
+{
+    padding: 7rem 5rem;
+    background: rgb(5 40 39);
+}
+
+.heading > h1
+{
+    color: white;    
+    font-weight: 700;
+    font-size: 2.75rem;
+    letter-spacing: 1.25;
+}
+
+
+.subheading > h2
+{
+    font-size: 2.25rem;
+    color: #ddd;
+    font-weight: 500;
+    letter-spacing: 1.25;
+}   
+
+.subheading{
+    margin-top: -2rem;
+}
+
+.info{
+    line-height: 1.5;
+    margin-top: 5rem;
+}
+
+.info > p{
+    color: #bbb;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.bold
+{
+    font-weight: 700;
+    color: white;
+}
+
+.infoLink
+{
+    text-decoration: none;
+    color: #ffffa2;
+    position: relative;
+}
+
+.infoLink::after
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 40%;
+    background: #ffffa2;
+    transition: all 0.2s ease-in-out;
+}
+
+.infoLink:hover::after
+{
+    content: '';
+    width: 100%;
+}
+
+.icons
+{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* .iconContainer
+{
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.iconContainer > i
+{
+    font-size: 2rem;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+}
+
+.iconDes
+{
+    color: #ddd;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+} */
+
+.iconLink
+{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+   /* justify-content: space-between; */
+    color: #bbb;
+    margin: 0 1.5rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.iconLink:hover
+{
+    color: white;
+}
+
+.iconLink > i
+{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.iconDes
+{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.projectPage
+{
+    padding: 4rem 5rem;
+}
+
+.projectHeading
+{
+    font-size: 2.5rem;
+}
+
+.projectSub
+{
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.projectContainer
+{
+    /* padding: 2rem 2rem; */
+    display: flex;
+    /* background: red; */
+    justify-content: space-evenly;
+    margin: 3rem 0;
+}
+
+.projectInfoContainer
+{
+    /* background: blue; */
+    padding: 1rem;
+    flex: 0.5;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.projectImageContainer
+{
+    /* background: green; */
+    padding: 1rem;
+    flex: 0.45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectImage
+{
+    width: 35rem;
+    border-radius: 1rem;
+}
+
+.projectInfoContainer > h2
+{
+    font-size: 2.15rem;
+}
+
+.skillContainer
+{
+    display: flex;
+}
+
+.skill
+{
+    margin: 0 0.1rem;
+}
+
+.skill
+{
+    padding: 0.5rem 0.5rem;
+    background:rgb(5 40 39);
+    border-radius: 0.1rem;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.projectInfoContainer > p
+{
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.infoPlayContainer
+{
+    margin: 1rem 0;
+}
+
+.infoPlay
+{
+    padding: 0.5rem 2.5rem;
+    border: 2px solid rgb(5 40 39);
+    border-radius: 0.1rem;
+    text-decoration: none;
+    position: relative;
+    color:rgb(5 40 39);
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
+    font-size: 1.1rem;
+}
+
+.infoPlay::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background:rgb(5 40 39);
+    transition: all 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.infoPlay:hover
+{
+    color: white;
+}
+
+.infoPlay:hover::after
+{
+    content: '';
+    width: 100%;
+    color: white;
+}
+
+.rightImageProject
+{
+    flex-direction: row-reverse;
+}
+
+.bachatImageContainer{
+    background: #111;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+    border-radius: 1rem;
+}
+
+.bachatImage
+{   
+    height: 3.5rem;
+    width: 14rem;
+}
+
+.ongoing{
+    color:rgba(5, 40, 39, 0.4)
+}
+
+.boldDiff
+{
+    font-weight: 600;
+}
+
+@media (max-width: 1200px)
+{
+    .projectContainer{
+        flex-direction: column;
+    }
+
+    .bachatImageContainer
+    {
+        width: 70%;
+    }
+}
+
+@media (max-width: 850px)
+{
+    .projectImage{
+        width: 100%;
+    }
+
+    .bachatImage{
+        width: 15rem;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .home{
+        padding: 2rem;
+    }
+
+    .projectPage
+    {
+        padding: 2rem;
+    }
+    
+    .bachatImageContainer{
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px)
+{
+    .iconDes
+    {
+        font-size: 1rem;
+    }
+
+    .iconLink > i
+    {
+        font-size: 1.25rem;
+    }
+
+
+}
+
+@media (max-width: 600px)
+{
+    .iconLink{
+        margin: 0 0.5rem;
+    }
+
+
+}
+
+@media (max-width: 500px)
+{
+    .icons
+    {
+        flex-direction: column;
+    }
+
+    .iconLink{
+        margin: 1rem 0;
+        flex-direction: row;
+    }
+
+    .iconDes
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 2rem;
+    }
+
+    .iconLink > i
+    {
+        font-size: 2rem;
+    }
+
+    .projectSub
+    {
+        font-size: 1.1rem;
+    }
+    
+    .bachatImage
+    {
+        width: 10rem;
+        height: 4rem;
+    }
+}
+
+@media (max-width: 300px)
+{
+    .bachatImage
+    {
+        height: 3rem;
+    }
+}

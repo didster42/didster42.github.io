@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: monospace;
+    background: #fafafa;
+    line-height: 1.75;
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.headerButtonsContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.headerButton {
+    text-decoration: none;
+    padding: 0 1.5rem;
+    color: #111;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.headerButton:hover {
+    background: #eee;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeHeading {
+    font-size: 2rem;
+}
+
+.homeDescription {
+    font-size: 1.1rem;
+    width: 80%;
+}
+
+i {
+    color: #666;
+}
+
+.postLinkContainer {
+    display: flex;
+    gap: 3rem;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+}
+
+.linkDate {
+    font-weight: 550;
+}
+
+.linkTitle {
+    color: #777;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.linkTitle:hover {
+    color: black;
+}
+
+.postContainer {
+    padding: 4rem 5rem;
+}
+
+.postHeading {
+    font-size: 2rem;
+}
+
+.postSubheading {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.postDate {
+    color: #555;
+}
+
+.postContainer h1,h3{
+    margin: 0;
+}
+
+.postContentContainer {
+    margin-top: 2rem;
+}
+
+.post {
+    font-size: 1.1rem;
+    color: #121212;
+    margin: 2rem 0 ;
+}
+
+.paraHeading {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.postQuotation {
+    padding-left: 3rem;
+    border-left: 0.5rem solid grey;
+    font-style: italic;
+    color: #444;
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.back {
+    padding: 0.5rem 2rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.back::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: black;
+    transition: all 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.back:hover {
+    color: white;
+}
+
+.back:hover::before {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    header {
+        display: none;
+    }
+}
+
+@media (max-width: 530px) {
+    .postContainer {
+        padding: 4rem 2rem;
+    }
+}

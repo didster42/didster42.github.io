@@ -1,147 +1,226 @@
 <html>
     <head>
         <title>
-            Dhruva Raja | Software Engineer | Game Developer
+            Dhruva Raja
         </title>
         <link rel="stylesheet" href="style.css">
-        <script src="https://kit.fontawesome.com/3cb8af7518.js" crossorigin="anonymous"></script>
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <span class="logo">
+                DHRUVA RAJA
+            </span>
+            <div class="headerButtonsContainer">
+                <a class="headerButton" href="#projects">Projects</a>
+                <a class="headerButton" href="#updates">Updates</a>
+                <a class="headerButton" href="./blog/blogIndex.html">Blog</a>
+                <a class="headerButton" href="https://drive.google.com/file/d/1BSLWBmGfsm21lc-vYFIAU78ZQ35yJMB_/view?usp=sharing">Resume</a>
+            </div>
+        </header>
         <section class="home">
-            <section class="heading">
-                <h1>Hey there, I'm Dhruva Raja.</h1>
-            </section>
-            <section class="subheading">
-                <h2>
-                    I am a Game Developer and an Engineering student.
-                </h2>
-            </section>
-            <section class="info">
-                <p>
-                    I'm in my final year pursuing <span class="bold"> B.E Electronics and Communications</span> Engineering and <span class="bold">Msc. Mathematics</span> at 
-                    <span class="bold">BITS Goa</span>. I will be graduating in <span class="bold">2024</span>. 
-                </p>
-                <p>
-                    I build <span class="bold">games and applications</span>. You can check out 
-                    some of my work <a href="https://play.google.com/store/apps/developer?id=Dhruva+Raja&pli=1" class="infoLink" target="_blank">here</a>. You can also have a look at my <a href="https://drive.google.com/file/d/1kXEF6jsienOfJTzKbbWEb2iJEUfTfD8c/view?usp=sharing" class="infoLink" target="_blank">resume</a>.
-                </p>
-                <p>
-                    I try to <span class="bold">write</span> if and when I can, you can have a look at my <a href="./thoughts/index.html" class="infoLink" target="_blank">blog</a>;
-                </p>
-                <p>
-                    Here are some relevant links, <span class="bold">get in touch!</span>
-                </p>
-            </section>
-            <section class="icons">
+            <canvas id="myCanvas">
 
-                <a href="" class="iconLink">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span class="iconDes">dhruvraja24@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/dhruva-raja-a9543a1a9/" class="iconLink">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span class="iconDes">Dhruva_Raja</span>
-                </a>
-                <a href="https://github.com/didster42" class="iconLink">
-                    <i class="fa-brands fa-github"></i>
-                    <span class="iconDes">didster42</span>
-                </a>
-                <a href="https://play.google.com/store/apps/developer?id=Dhruva+Raja&pli=1" class="iconLink">
-                    <i class="fa-brands fa-google-play"></i>
-                    <span class="iconDes">Dhruva_Raja</span>
-                </a>
-            </section>
+            </canvas>
+            <div class="homeInfoContainer">
+                <div class="infoContainer">
+                    <h1 class="homeHeading">Hey There, I'm Dhruva Raja</h1>
+                    <p class="homeDescription">
+                        I am a final year <span class="bold">Electronics Engineering</span>
+                         and <span class="bold">Mathematics</span> student
+                        at <span class="bold">BITS Goa</span>. I graduate in <span class="bold">2024</span>
+                    </p>
+                    <p class="homeDescription">
+                        I've made <span class="bold">games and applications</span> in the past. 
+                        Recently been poking around with some <span class="bold">ML</span>. 
+                    </p>
+                    <div class="homeButtonContainer">
+                        <p class="homeDescription homeButtonDes">
+                            <a href="https://drive.google.com/file/d/1BSLWBmGfsm21lc-vYFIAU78ZQ35yJMB_/view?usp=sharing" class="homeButton bold">Resume</a> - find my resume
+                        </p>
+                        <p class="homeDescription homeButtonDes">
+                            <a href="./blog/blogIndex.html" class="homeButton bold">Blog</a> - I write
+                        </p>
+                        <p class="homeDescription homeButtonDes">
+                            <a href="https://www.linkedin.com/in/dhruva-raja-a9543a1a9/" class="homeButton bold">Linkedin</a> - Not an Influencer
+                        </p>
+                        <p class="homeDescription homeButtonDes">
+                            <a href="https://github.com/didster42" class="homeButton bold">Github</a> - Some code
+                        </p>
+                    </div>
+                </div>
+                <div class="imageContainer">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQF0Oefy3nRnsw/profile-displayphoto-shrink_400_400/0/1691850546384?e=1718841600&v=beta&t=S1seFazxfLhIhdERCvh0bfjTH3VFq0ZyNiDMc_bHJII" alt="">
+                </div>
+            </div>
         </section>
-        <section class="projectPage">
-            <h1 class="projectHeading">
-                Projects
-            </h1>
-            <h2 class="projectSub">
-                Here are some of the projects I've worked on. Each project has its own wonderful story. 
-            </h2>
-            <section class="projectContainer">
-                <section class="projectImageContainer">
-                    <img src="./assets/tunnelPic.png" alt="" class="projectImage">
-                </section>
-                <section class="projectInfoContainer">
-                    <h2>Tunnel</h2>
-                    <div class="skillContainer">
-                        <div class="skill">Unity</div>
-                        <div class="skill">C#</div>
-                        <div class="skill">GameDev</div>
+        <section class="projects" id="projects">
+            <div class="heading">
+                <h1>Projects</h1>
+            </div>
+            <div class="projectsContainer">
+                <div class="projectArea">
+                    <div class="projectInfo">
+                        <div class="projectHeadingContainer">
+                            <h3 class="projectHeading">Bachat</h3>
+                        </div>
+                        <div class="projectSkills">
+                            <span class="projectSkill">Flutter</span>
+                            <span class="projectSkill">Dart</span>
+                            <span class="projectSkill">Firebase</span>
+                        </div>
+                        <div class="projectDescription">
+                            Bachat helps you keep track of your UPI payments, 
+                            automatically. With UPI apps, paying money has become
+                             easier than ever before, because we don't have the
+                              physical sensation of cash. Bachat tracks your 
+                              UPI payments and informs you of your monthly spending
+                               habits. Me and 3 friends came up with the idea when
+                                we were trying to split the bill in our college
+                                 restaurant, complaining about our monthly 
+                                 budgeting.
+                        </div>
+                        <div class="projectButtonContainer">
+                            <a href="" class="playButton">
+                                Play
+                            </a>
+                        </div>
                     </div>
-                    <p>
-                        Tunnel was the second game I published on the playstore. You control a small player (triangle) 
-                        and try to evade a series of obstacles which come at you from ahead (similar to life?). I wanted to go 
-                        for something trippy with a nice beat. It was because of those factors that playtesting was an incredibly fun experience. 
-                        I thought it would be amazing to let other people try and beat my score, so far none have. Why don't you give it a try?
-                    </p>
-                    <div class="infoPlayContainer">
-                        <a href="https://play.google.com/store/apps/details?id=com.Dhruva.Tunnel" class="infoPlay" target="_blank">
-                            Play
-                        </a>
+                    <div class="projectImageContainer">
+                        <div class="bachatContainer">
+                            <img src="./assets/bachat.png"
+                            class="bachat" alt="">
+                        </div>
                     </div>
-                </section>
-            </section>
-            <section class="projectContainer rightImageProject">
-                <section class="projectImageContainer">
-                    <img src="./assets/SquareNinjaPic.png" alt="" class="projectImage">
-                </section>
-                <section class="projectInfoContainer">
-                    <h2>Square Ninja</h2>
-                    <div class="skillContainer">
-                        <div class="skill">Unity</div>
-                        <div class="skill">C#</div>
-                        <div class="skill">GameDev</div>
+                </div>
+                <div class="projectArea">
+                    <div class="projectInfo">
+                        <div class="projectHeadingContainer">
+                            <h3 class="projectHeading">Tunnel</h3>
+                        </div>
+                        <div class="projectSkills">
+                            <span class="projectSkill">Unity</span>
+                            <span class="projectSkill">C#</span>
+                            <span class="projectSkill">GameDev</span>
+                        </div>
+                        <div class="projectDescription">
+                            Tunnel was the second game I published on the playstore. You control a small player (triangle) and try to evade a series of obstacles which come at you from ahead (similar to life?). I wanted to go for something trippy with a nice beat. It was because of those factors that playtesting was an incredibly fun experience. I thought it would be amazing to let other people try and beat my score, so far none have. Why don't you give it a try?
+                        </div>
+                        <div class="projectButtonContainer">
+                            <a href="" class="playButton">
+                                Play
+                            </a>
+                        </div>
                     </div>
-                    <p>
-                        Square Ninja was the first game project I was able to complete. 
-                        You take control of a square and attempt to survive the onslaught of an 
-                        army of triangles. Its funny how lack of graphics 
-                        can form the premise for your game. If you enjoy dashing through enemies 
-                         with cool slow motion effects this is the game for you. 
-                         You could even try beating the high score on the leaderboard, 
-                         even I'm second at the moment!
-                    </p>
-                    <div class="infoPlayContainer">
-                        <a href="https://play.google.com/store/apps/details?id=com.SquareNinja" class="infoPlay" target="_blank">
-                            Play
-                        </a>
+                    <div class="projectImageContainer">
+                        <img src="./assets/tunnelPic.png"
+                        class="projectImage" alt="">
                     </div>
-                </section>
-            </section>
-            <section class="projectContainer">
-                <section class="projectImageContainer">
-                    <div class="bachatImageContainer">
-                        <img src="./assets/bachat.png" alt="" class="projectImage bachatImage">
+                </div>
+                <div class="projectArea">
+                    <div class="projectInfo">
+                        <div class="projectHeadingContainer">
+                            <h3 class="projectHeading">Square Ninja</h3>
+                        </div>
+                        <div class="projectSkills">
+                            <span class="projectSkill">Unity</span>
+                            <span class="projectSkill">C#</span>
+                            <span class="projectSkill">GameDev</span>
+                        </div>
+                        <div class="projectDescription">
+                            Square Ninja was the first game project I was able to complete. You take control of a square and attempt to survive the onslaught of an army of triangles. Its funny how lack of graphics can form the premise for your game. If you enjoy dashing through enemies with cool slow motion effects this is the game for you. You could even try beating the high score on the leaderboard, even I'm second at the moment!
+                        </div>
+                        <div class="projectButtonContainer">
+                            <a href="" class="playButton">
+                                Play
+                            </a>
+                        </div>
                     </div>
-                </section>
-                <section class="projectInfoContainer">
-                    <h2>Bachat</h2>
-                    <div class="skillContainer">
-                        <div class="skill">Flutter</div>
-                        <div class="skill">Dart</div>
-                        <div class="skill">Firebase</div>
+                    <div class="projectImageContainer">
+                        <img src="./assets/SquareNinjaPic.png"
+                        class="projectImage" alt="">
                     </div>
-                    <p>
-                        Bachat helps you keep track of your UPI payments, <span class="boldDiff">automatically</span>. 
-                        With UPI apps, paying money has become easier than ever before, because
-                        we don't have the physical sensation of cash. Bachat tracks your UPI payments
-                        and informs you of your monthly spending habits. Me and 3 friends came up with the 
-                        idea when we were trying to split the bill in our college restaurant, complaining 
-                        about our monthly budgeting.
-                    </p>
-                    <div class="infoPlayContainer">
-                        <a href="https://github.com/didster42/BachatApp" class="infoPlay" target="_blank">
-                            Play
-                        </a>
+                </div>
+            </div>
+        </section>
+        <section class="experience" id="updates">
+            <div class="heading">
+                <h1>Updates</h1>
+            </div>
+            <div class="timelineContainer">
+                <div class="timelineBlock">
+                    <div class="timelineBox">
+                        <div class="timelineInfo">
+                            <h5 class="timelineHeading">January 2024</h5>
+                            <p class="timelineDes">
+                                Started as an ML Intern at Wadhwani AI! Working 
+                                with LLMs. With recent advancements in large language models, 
+                                gonna have fun messing around with them. 
+                            </p>
+                        </div>
+                        <div class="timelineImageContainer">
+                            <img class="timelineImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSdD2EIjGAlLboqdE9GRKZtSE-gr-f6XB7B_VWA-U2dA&s" alt="">
+                        </div>
                     </div>
-                </section>
-            </section>
+                </div>
+                <div class="timelineBlock">
+                    <div class="timelineBox">
+                        <div class="timelineInfo">
+                            <h5 class="timelineHeading">July 2023</h5>
+                            <p class="timelineDes">
+                                Started as an SDE Intern at Amazon :D 
+                                Hoping to learn a lot!
+                            </p>
+                        </div>
+                        <div class="timelineImageContainer">
+                            <img class="timelineImage" src="https://icon2.cleanpng.com/20180803/ubx/kisspng-amazon-com-gift-card-voucher-discounts-and-allowan-benzer-%C3%9Cr%C3%BCnler-shopping-bamboo-garden-broken-arr-5b64929b6e7280.4788756815333177874524.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="timelineBlock">
+                    <div class="timelineBox">
+                        <div class="timelineInfo">
+                            <h5 class="timelineHeading">January 2023</h5>
+                            <p class="timelineDes">
+                                Started work with EvoReality, working on games for assessing people with Dementia. <br>
+                            </p>
+                        </div>
+                        <div class="timelineImageContainer">
+                            <img class="timelineImage evo" src="https://media.licdn.com/dms/image/C4D0BAQGbT27NYlunZQ/company-logo_200_200/0/1654752817685/dwarca_logo?e=1721865600&v=beta&t=VKhsSTu6UFU7qhAMQCuW9mAJBKV4LLofFJB10YUZVlo" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="timelineBlock">
+                    <div class="timelineBox">
+                        <div class="timelineInfo">
+                            <h5 class="timelineHeading">June 2021</h5>
+                            <p class="timelineDes">
+                                SDE Intern at Plastic Water Labs, building a remote assistance applications
+                                for field technicians!
+                            </p>
+                        </div>
+                        <div class="timelineImageContainer">
+                            <img class="timelineImage evo" src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/80f7e791c0131a96da3b" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="timelineBlock">
+                    <div class="timelineBox">
+                        <div class="timelineInfo">
+                            <h5 class="timelineHeading">July 2019</h5>
+                            <p class="timelineDes">
+                                Joined BITS Goa! Majoring in Mathematics and Electronics!
+                            </p>
+                        </div>
+                        <div class="timelineImageContainer">
+                            <img class="timelineImage evo" src="https://upload.wikimedia.org/wikipedia/en/d/d3/BITS_Pilani-Logo.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </body>
 </html>

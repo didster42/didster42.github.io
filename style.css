@@ -1,401 +1,349 @@
-body
-{
+body {
     margin: 0;
-    font-family: 'Lato', sans-serif;
-    /* background: rgb(5 40 39); */
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    line-height: 1.75;
 }
 
-.home
-{
-    padding: 7rem 5rem;
-    background: rgb(5 40 39);
+html {
+    scroll-behavior: smooth;
 }
 
-.heading > h1
-{
-    color: white;    
-    font-weight: 700;
-    font-size: 2.75rem;
-    letter-spacing: 1.25;
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
 }
 
-
-.subheading > h2
-{
-    font-size: 2.25rem;
-    color: #ddd;
-    font-weight: 500;
-    letter-spacing: 1.25;
-}   
-
-.subheading{
-    margin-top: -2rem;
+.logo {
+    font-weight: 600;
 }
 
-.info{
-    line-height: 1.5;
-    margin-top: 5rem;
+.headerButtonsContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.info > p{
-    color: #bbb;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.bold
-{
-    font-weight: 700;
-    color: white;
-}
-
-.infoLink
-{
+.headerButton {
     text-decoration: none;
-    color: #ffffa2;
-    position: relative;
-}
-
-.infoLink::after
-{
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 2px;
-    width: 40%;
-    background: #ffffa2;
+    padding: 0 1.5rem;
+    color: #111;
+    height: 100%;
+    display: flex;
+    align-items: center;
     transition: all 0.2s ease-in-out;
 }
 
-.infoLink:hover::after
-{
+.headerButton:hover {
+    background: #eee;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+    flex-wrap: wrap-reverse;
+}
+
+.homeInfoContainer {
+    display: flex;
+    gap: 5rem;
+    max-width: 70%;
+}
+
+.imageContainer > img {
+    height: 17rem;
+    border-radius: 50%;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.homeHeading {
+    font-size: 2.25rem;
+    color: black;
+    font-weight: 700;
+}
+
+.homeDescription {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.bold {
+    font-weight: 600;
+    color: black;
+}
+
+.homeButtonContainer {
+    margin-top: 1rem;
+}
+
+.homeButton {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding-bottom: -1rem;
+}
+
+.homeButton::after {
     content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 50%;
+    height: 1px;
+    background: grey;
+    transition: all 0.2s ease-in-out;
+}
+
+.homeButton:hover::after {
+    width: 100%;
+    background: black;
+}
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    display: flex;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
-.icons
-{
-    margin-top: 3rem;
+.timelineBox {
+    position: relative;
     display: flex;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    gap: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.timelineBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    height: 1rem;
+    width: 1rem;
+    /* border-radius: 50%; */
+    background: #111;
+    border-radius: 0.15rem;
+}
+
+.timelineBlock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    width: 100%;
     justify-content: center;
 }
 
-/* .iconContainer
-{
-    padding: 3rem;
+
+.timelineHeading {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.timelineImage {
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.projects {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 3rem;
 }
 
-
-.iconContainer > i
-{
-    font-size: 2rem;
-    color: #ddd;
+.projectsContainer {
     display: flex;
-    justify-content: center;
-}
-
-.iconDes
-{
-    color: #ddd;
-    padding: 1rem 0;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-} */
-
-.iconLink
-{
-    text-decoration: none;
-    display: flex;
+    align-items: center;
     flex-direction: column;
-   /* justify-content: space-between; */
-    color: #bbb;
-    margin: 0 1.5rem;
-    transition: all 0.1s ease-in-out;
 }
 
-.iconLink:hover
-{
-    color: white;
-}
-
-.iconLink > i
-{
+.projectArea {
     display: flex;
     justify-content: center;
+    max-width: 90%;
+    gap: 5rem;
+    margin: 2rem;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.projectReverse {
+    flex-direction: row-reverse;
+}
+
+.projectHeading {
     font-size: 2rem;
     margin: 1rem 0;
 }
 
-.iconDes
-{
-    font-size: 1.2rem;
+.projectImageContainer {
+    flex: 0.4;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 1rem;
 }
 
-.projectPage
-{
-    padding: 4rem 5rem;
+.projectImage {
+    height: 16rem;
+    border-radius: 1rem;
 }
 
-.projectHeading
-{
-    font-size: 2.5rem;
+.projectInfo {
+    flex: 0.4;
+    flex-grow: 1;
 }
 
-.projectSub
-{
-    font-size: 1.35rem;
-    font-weight: 400;
-}
-
-.projectContainer
-{
-    /* padding: 2rem 2rem; */
+.bachatContainer {
     display: flex;
-    /* background: red; */
-    justify-content: space-evenly;
-    margin: 3rem 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background: black;
+    height: 16rem;
+    width: 32rem;
 }
 
-.projectInfoContainer
-{
-    /* background: blue; */
-    padding: 1rem;
-    flex: 0.5;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.projectImageContainer
-{
-    /* background: green; */
-    padding: 1rem;
-    flex: 0.45;
+.bachat {
+    height: 3rem; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.projectImage
-{
-    width: 35rem;
-    border-radius: 1rem;
-}
-
-.projectInfoContainer > h2
-{
-    font-size: 2.15rem;
-}
-
-.skillContainer
-{
+.projectSkills {
     display: flex;
-}
-
-.skill
-{
-    margin: 0 0.1rem;
-}
-
-.skill
-{
-    padding: 0.5rem 0.5rem;
-    background:rgb(5 40 39);
-    border-radius: 0.1rem;
-    color: white;
-    font-size: 1.1rem;
-}
-
-.projectInfoContainer > p
-{
-    font-size: 1.2rem;
-    line-height: 1.5;
-}
-
-.infoPlayContainer
-{
     margin: 1rem 0;
+
 }
 
-.infoPlay
-{
-    padding: 0.5rem 2.5rem;
-    border: 2px solid rgb(5 40 39);
-    border-radius: 0.1rem;
+.projectSkill {
+    padding: 0.25rem 1.25rem;
+    background: black;
+    color: white;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.playButton {
+    padding: 0.25rem 2rem;
+    border: 2px solid black;
+    margin-top: 2rem;
     text-decoration: none;
-    position: relative;
-    color:rgb(5 40 39);
+    color: black;
     transition: all 0.2s ease-in-out;
-    z-index: 1;
-    font-size: 1.1rem;
+    position: relative;
 }
 
-.infoPlay::after
-{
+.playButton::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 0;
-    background:rgb(5 40 39);
+    background: black;
     transition: all 0.2s ease-in-out;
     z-index: -1;
 }
 
-.infoPlay:hover
-{
-    color: white;
-}
-
-.infoPlay:hover::after
-{
-    content: '';
+.playButton:hover::before{
     width: 100%;
+}
+
+.playButton:hover {
     color: white;
 }
 
-.rightImageProject
-{
-    flex-direction: row-reverse;
+.projectDescription {
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
 }
 
-.bachatImageContainer{
-    background: #111;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 16rem;
-    border-radius: 1rem;
+#myCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: -40;
 }
 
-.bachatImage
-{   
-    height: 3.5rem;
-    width: 14rem;
-}
-
-.ongoing{
-    color:rgba(5, 40, 39, 0.4)
-}
-
-.boldDiff
-{
-    font-weight: 600;
-}
-
-@media (max-width: 1200px)
-{
-    .projectContainer{
-        flex-direction: column;
-    }
-
-    .bachatImageContainer
-    {
-        width: 70%;
+@media (max-width: 1100px) {
+    .imageContainer  {
+        display: none;
     }
 }
 
-@media (max-width: 850px)
-{
-    .projectImage{
-        width: 100%;
+@media (max-width: 600px) {
+    .bachatContainer {
+        width: 30rem;
     }
 
-    .bachatImage{
-        width: 15rem;
-    }
-}
-
-@media (max-width: 800px)
-{
-    .home{
-        padding: 2rem;
-    }
-
-    .projectPage
-    {
-        padding: 2rem;
-    }
-    
-    .bachatImageContainer{
-        width: 100%;
+    .projectImage {
+        width: 30rem;
     }
 }
 
-@media (max-width: 750px)
-{
-    .iconDes
-    {
-        font-size: 1rem;
+@media (max-width: 550px) {
+    header {
+        display: none;
     }
 
-    .iconLink > i
-    {
-        font-size: 1.25rem;
+    .home {
+        height: auto;
     }
 
-
-}
-
-@media (max-width: 600px)
-{
-    .iconLink{
-        margin: 0 0.5rem;
+    .bachatContainer {
+        width: 25rem;
     }
 
-
-}
-
-@media (max-width: 500px)
-{
-    .icons
-    {
-        flex-direction: column;
-    }
-
-    .iconLink{
-        margin: 1rem 0;
-        flex-direction: row;
-    }
-
-    .iconDes
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 2rem;
-    }
-
-    .iconLink > i
-    {
-        font-size: 2rem;
-    }
-
-    .projectSub
-    {
-        font-size: 1.1rem;
-    }
-    
-    .bachatImage
-    {
-        width: 10rem;
-        height: 4rem;
+    .projectImage {
+        width: 25rem;
     }
 }
 
-@media (max-width: 300px)
-{
-    .bachatImage
-    {
-        height: 3rem;
+@media (max-width: 470px) {
+    .bachatContainer {
+        width: 20rem;
+    }
+
+    .projectImage {
+        width: 20rem;
     }
 }

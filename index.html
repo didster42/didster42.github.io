@@ -583,6 +583,50 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            nav a {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+            
+            nav ul {
+                gap: 0.5rem;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.5rem;
+            }
+            
+            .hero-title {
+                font-size: clamp(1.5rem, 7vw, 2rem);
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Dhruva's Thoughts</title>
+    <!-- Google Fonts: Clean sans and subtle mono for accents -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --bg-card: #151922;
+            --bg-nav: rgba(11, 14, 20, 0.95);
+            --bg-nav-scrolled: rgba(11, 14, 20, 0.98);
+            --bg-accent: #1a202c;
+            --text-main: #c7d2e7;
+            --text-muted: #9ca3af;
+            --text-title: #e2e8f0;
+            --text-accent: #7c8db5;
+            --border: #23283a;
+            --border-hover: #2d3748;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --radius: 10px;
+            --font-main: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Fira Mono', 'SF Mono', 'Cascadia Code', monospace;
+            --fun-accent: #ffb86c;
+            --fun-pink: #ff79c6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            letter-spacing: 0.01em;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: background 0.3s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: rgba(26, 32, 44, 0.18);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .blog-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff 30%, var(--fun-accent) 70%, var(--fun-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.08em;
+        }
+
+        .blog-intro {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            background: rgba(255, 184, 108, 0.04);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(255, 184, 108, 0.04);
+        }
+
+        .blog-posts {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .post-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .post-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .post-date {
+            font-family: var(--font-mono);
+            color: var(--fun-accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .post-item:hover .post-title {
+            color: var(--fun-accent);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--fun-accent);
+            background: rgba(255, 184, 108, 0.08);
+        }
+
+        .back-link svg {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 6rem 1rem 2rem;
+            }
+            
+            .blog-title {
+                font-size: 2.5rem;
+            }
+            
+            .post-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="index.html" style="color: var(--fun-accent);">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+            </svg>
+            Back to Portfolio
+        </a>
+
+        <div class="blog-header">
+            <h1 class="blog-title">Thoughts</h1>
+            <p class="blog-intro">
+                Welcome to my corner of the internet, where I 'sometimes' pen down stuff I learn and think about. I read up a lot about the things I'm interested in, and I am truly curious and excited about where our world is going, this space gives me an outlet for putting out my Thoughts.
+            </p>
+        </div>
+
+        <div class="blog-posts">
+            <div class="post-item" onclick="window.location.href='bean-wars-showdown.html'">
+                <div class="post-date">20 - 10 - 2022</div>
+                <h2 class="post-title">Bean Wars Showdown - Yes thats what I'm naming the next big game.</h2>
+            </div>
+
+            <div class="post-item" onclick="window.location.href='stanley-parable.html'">
+                <div class="post-date">29 - 07 - 2021</div>
+                <h2 class="post-title">The Stanley Parable - I love this game</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Wars Showdown - Dhruva's Blog</title>
+    <!-- Google Fonts: Clean sans and subtle mono for accents -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --bg-card: #151922;
+            --bg-nav: rgba(11, 14, 20, 0.95);
+            --bg-nav-scrolled: rgba(11, 14, 20, 0.98);
+            --bg-accent: #1a202c;
+            --text-main: #c7d2e7;
+            --text-muted: #9ca3af;
+            --text-title: #e2e8f0;
+            --text-accent: #7c8db5;
+            --border: #23283a;
+            --border-hover: #2d3748;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --radius: 10px;
+            --font-main: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Fira Mono', 'SF Mono', 'Cascadia Code', monospace;
+            --fun-accent: #ffb86c;
+            --fun-pink: #ff79c6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            letter-spacing: 0.01em;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: background 0.3s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: rgba(26, 32, 44, 0.18);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .article-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff 30%, var(--fun-accent) 70%, var(--fun-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.08em;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: var(--fun-accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .article-date {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            animation: fadeInUp 1s ease-out 0.2s both;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin: 2.5rem 0 1rem 0;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--fun-accent);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .quote-block {
+            background: rgba(255, 184, 108, 0.04);
+            border-left: 4px solid var(--fun-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .narrator-quote {
+            background: rgba(255, 121, 198, 0.04);
+            border-left: 4px solid var(--fun-pink);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            color: var(--text-title);
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--fun-accent);
+            background: rgba(255, 184, 108, 0.08);
+        }
+
+        .back-link svg {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 6rem 1rem 2rem;
+            }
+            
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 1.5rem;
+            }
+            
+            .back-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="index.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="back-links">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                </svg>
+                Back to Blog
+            </a>
+            <a href="../index.html" class="back-link">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                </svg>
+                Back to Portfolio
+            </a>
+        </div>
+
+        <div class="article-header">
+            <h1 class="article-title">Bean Wars Showdown!</h1>
+            <p class="article-subtitle">Thats what I'm naming the next game.</p>
+            <p class="article-date">20-10-2022</p>
+        </div>
+
+        <article class="article-content">
+            <p>When you make games, you always have an image in your mind as to how that game would turn out. You have that image inside your head even before you start designing the components, or developing the actual game. When my favourite youtuber, Dani started releasing videos documenting his development on Karlson, I knew that I had to start an ambitious project of my own, that was the start of Bean Wars Showdown!</p>
+
+            <p>I sat down to write what I wanted in the game, I boiled it down to some really simple things. I wanted to go for a fast paced first person shooter, a totally original idea. Last summer, me and a lot of friends would play Krunker together. For those who don't know, Krunker is a first person shooting game which allows you to play a fast paced fps on the browser. One of my gaming deprived mac user friends loved it so much he would play it a lot, and it shows how you don't really need the best graphics for your game to be loved by people. I wanted to make something along those lines, it doesn't need to have graphics which only RTX can run, it doesn't need to be a huge file downloaded on your PC. Just the fact that everyone could play it made it amazing, me and my friends would play Krunker for hours, we just loved it.</p>
+
+            <h2>Just another FPS</h2>
+            <div class="quote-block">
+                I think that first-person shooter is a stable genre that's going to be here forever, just like there are going to be driving games forever. There's something just intrinsically rewarding about turning around a corner and shooting at something.
+            </div>
+            <p style="text-align: right; color: var(--fun-accent); font-weight: 600; margin-bottom: 2rem;">— John Carmack</p>
+
+            <p>I totally agree with what Carmack said, I definitely love beating my friends at video games. Its one of the big pleasures of life. So here I was, building just another first person shooter. I wanted this game to have everything that the prior first person shooters have had, maybe I just wanted to add some cool extra movement mechanics to a basic movement based first person shooter, maybe I just wanted to see the bean characters which Dani starts of all his games with shoot at each other, I thought it would be cool if those goofy fall guys, gang beasts characters would shoot at each other in a shooting game. So thats what I set out to build.</p>
+
+            <h2>Movement is a cool thing</h2>
+            <p>I occasionally became really good at Krunker, so good such that my friends weren't able to keep up. The game ended up being a test on how you could master its movement. You have other critical elements in the game as well, you have your shooting skills, game IQ, but I always felt that the most crucial thing to master in that game was movement. There was a combination of movement keys which would allow you to move at insane speeds, I just became really good at that. My friends would find it really really hard to shoot at me, and I'd just come near them and get the points. Figuring out that movement mechanic and using it every game made the game so much more fun than earlier. I really wanted to incorporate fun, fast paced movement with wall running into my game, so thats what I put into my plan.</p>
+
+            <h2>Making multiplayer would be fun</h2>
+            <p>The above statement is probably a lie. Nevertheless, I had never built a multplayer game before, so making one now would be really fun. I'd have my friends create rooms to join and play together, similar to how among us multiplayer works.</p>
+
+            <h2>EndGame?</h2>
+            <p>I'd say my game would be a success in my eyes the night me and my friends just play Bean Wars - Showdown, talking to each other on discord, laughing about who sucks, the person who loses blaming the ping for his drawbacks, the winner gloating as usual. The day that happens is the day I'll be really happy. Lets see how the project turns out, I have been working on it for a while now, and as I progress I'll keep posting stuff.</p>
+
+            <p>Thats all for now!</p>
+        </article>
+    </div>
+</body>
+</html>

@@ -1,1366 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <!-- Google Fonts: Clean sans and subtle mono for accents -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0b0e14;
-            --bg-card: #151922;
-            --bg-nav: rgba(11, 14, 20, 0.95);
-            --bg-nav-scrolled: rgba(11, 14, 20, 0.98);
-            --bg-accent: #1a202c;
-            --text-main: #c7d2e7;
-            --text-muted: #9ca3af;
-            --text-title: #e2e8f0;
-            --text-accent: #7c8db5;
-            --border: #23283a;
-            --border-hover: #2d3748;
-            --shadow: 0 2px 8px rgba(0,0,0,0.08);
-            --radius: 10px;
-            --font-main: 'Inter', system-ui, sans-serif;
-            --font-mono: 'Fira Mono', 'SF Mono', 'Cascadia Code', monospace;
-            --fun-accent: #ffb86c;
-            --fun-pink: #ff79c6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background: var(--bg);
-            color: var(--text-main);
-            line-height: 1.7;
-            scroll-behavior: smooth;
-            letter-spacing: 0.01em;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg-nav);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: background 0.3s;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            letter-spacing: 0.03em;
-        }
-
-        nav a:hover {
-            color: #fff;
-            background: rgba(26, 32, 44, 0.18);
-        }
-
-        section {
-            min-height: 100vh;
-            padding: 6rem 2rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Home Section */
-        #home {
-            text-align: center;
-            flex-direction: column;
-            position: relative;
-        }
-
-        /* Rick Roll Background Text */
-        .rickroll-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-            user-select: none;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 5;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4.2rem);
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, #fff 30%, var(--fun-accent) 70%, var(--fun-pink) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: none;
-            font-family: var(--font-main);
-            letter-spacing: 0.08em;
-            display: inline-block;
-            position: relative;
-        }
-        .hero-title .hero-graphic {
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 0.18em;
-            width: 1.2em;
-            height: 1.2em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--fun-accent);
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-            font-family: var(--font-main);
-            letter-spacing: 0.04em;
-        }
-
-        .hero-description {
-            font-size: 1.13rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2.2rem;
-            line-height: 1.8;
-            font-family: var(--font-main);
-            background: rgba(255, 184, 108, 0.04);
-            border-radius: 8px;
-            padding: 1.1rem 1.5rem;
-            box-shadow: 0 2px 12px rgba(255, 184, 108, 0.04);
-        }
-
-        /* Social Links - Simple hover effect */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6em;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 1.08rem;
-            font-weight: 600;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            transition: background 0.18s, color 0.18s;
-            background: none;
-            font-family: var(--font-main);
-            letter-spacing: 0.02em;
-            border: none;
-        }
-        .social-link svg {
-            width: 1.3em;
-            height: 1.3em;
-            display: inline-block;
-            vertical-align: middle;
-            fill: currentColor;
-            transition: color 0.18s;
-        }
-        .social-link:hover,
-        .social-link:focus {
-            color: var(--fun-accent);
-            background: rgba(255, 184, 108, 0.08);
-            outline: none;
-        }
-        .social-link:active {
-            color: var(--fun-pink);
-            background: rgba(255, 121, 198, 0.08);
-        }
-
-        /* About Section */
-        #about {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .section-title {
-            font-size: 2.3rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            color: var(--text-title);
-            align-self: center;
-            font-family: var(--font-main);
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-        }
-
-        .terminal-container {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .terminal-header {
-            background: var(--bg-accent);
-            padding: 0.8rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .terminal-button {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #4a5568;
-        }
-
-        .terminal-title {
-            margin-left: 1rem;
-            color: var(--text-accent);
-            font-size: 0.95rem;
-            font-family: var(--font-mono);
-            letter-spacing: 0.04em;
-        }
-
-        .terminal-body {
-            padding: 1.5rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 1.05rem;
-        }
-
-        .terminal-line {
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: typewriter 0.5s ease-out forwards;
-            font-family: var(--font-mono);
-        }
-
-        .terminal-prompt {
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            font-size: 1.1em;
-        }
-
-        .terminal-command {
-            color: var(--text-accent);
-            font-family: var(--font-mono);
-        }
-
-        .terminal-output {
-            color: var(--text-main);
-            margin-left: 2rem;
-            font-family: var(--font-mono);
-        }
-
-        .timeline-item {
-            margin-bottom: 1.2rem;
-        }
-
-        .timeline-date {
-            color: var(--text-title);
-            font-weight: 600;
-            font-family: var(--font-mono);
-        }
-
-        .timeline-role {
-            color: var(--text-main);
-            font-weight: 400;
-            font-family: var(--font-mono);
-        }
-
-        .timeline-company {
-            color: var(--text-accent);
-            font-family: var(--font-mono);
-        }
-
-        /* Terminal-style Event Cards */
-        .event-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.5rem 0;
-            margin-bottom: 0.3rem;
-            background: transparent;
-            border: none;
-            transition: none;
-            position: relative;
-            overflow: visible;
-            opacity: 0;
-            animation: slideInUp 0.6s ease-out forwards;
-            font-family: var(--font-mono);
-            border-left: 2px solid transparent;
-        }
-
-        .event-card:hover {
-            /* Hover effects removed for clean timeline appearance */
-        }
-
-        .event-date {
-            color: var(--fun-accent);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            font-weight: 400;
-            min-width: 90px;
-            padding: 0;
-            background: transparent;
-            border-radius: 0;
-            text-align: left;
-            font-style: italic;
-        }
-
-        .event-content {
-            flex: 1;
-        }
-
-        .event-title {
-            color: var(--text-title);
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 0.2rem;
-            font-family: var(--font-mono);
-        }
-
-        .event-description {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.4;
-            font-family: var(--font-mono);
-            margin-left: 0.5rem;
-        }
-
-        .event-category {
-            display: none;
-        }
-
-        /* Terminal cursor effect */
-        .terminal-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: var(--fun-accent);
-            animation: blink 1s infinite;
-            margin-left: 2px;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Projects Section */
-        #projects {
-            flex-direction: column;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.2rem;
-            width: 100%;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: transparent;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            box-shadow: none;
-            transition: border-color 0.18s, background 0.18s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-            min-height: 0;
-            height: auto;
-            overflow: hidden;
-        }
-
-        .project-card:hover,
-        .project-card:focus-within {
-            border-color: var(--fun-accent);
-            background: rgba(255, 184, 108, 0.03);
-        }
-
-        /* 
-         * Fix for project images not fitting properly:
-         * - Ensure .project-image always fills the card area, is visible, and maintains aspect ratio.
-         * - Add a min-height and max-height to .project-image for better control.
-         * - Add object-position: top; to show the top of the image if cropping occurs.
-         */
-        .project-image {
-            display: block;
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            object-position: top;
-            background: var(--bg-card);
-            border-top-left-radius: var(--radius);
-            border-top-right-radius: var(--radius);
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom: 1px solid var(--border);
-            min-height: 180px;
-            max-height: 320px;
-        }
-
-        .project-content {
-            padding: 1.5rem 1.5rem 1.2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex: 1 1 auto;
-            min-height: 220px; /* Ensures enough height for button alignment */
-            position: relative;
-        }
-
-        .project-title {
-            font-size: 1.13rem;
-            font-weight: 600;
-            color: var(--text-title);
-            font-family: var(--font-main);
-            letter-spacing: 0.03em;
-            margin-bottom: 0.1em;
-        }
-
-        .project-description {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            font-family: var(--font-main);
-            margin-bottom: 0.2em;
-        }
-
-        .project-skills {
-            display: none;
-        }
-
-        .project-link {
-            align-self: flex-start;
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4em;
-            background: none;
-            color: var(--fun-accent);
-            font-weight: 500;
-            font-size: 0.98rem;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            padding: 0;
-            transition: color 0.18s;
-            cursor: pointer;
-            box-shadow: none;
-            position: relative;
-        }
-        .project-link svg {
-            width: 1.1em;
-            height: 1.1em;
-            fill: currentColor;
-            transition: color 0.18s;
-        }
-        .project-link:hover,
-        .project-link:focus {
-            color: var(--fun-pink);
-            text-decoration: underline;
-            outline: none;
-        }
-        .project-link:active {
-            color: var(--fun-accent);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes typewriter {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            section {
-                padding: 4rem 1rem 2rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .hero-title {
-                font-size: clamp(1.7rem, 8vw, 2.3rem);
-            }
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .social-links {
-                gap: 0.7rem;
-            }
-            .terminal-body {
-                padding: 1.2rem 1rem;
-            }
-            .project-content {
-                padding: 1.1rem 1rem 1rem 1rem;
-                min-height: 170px;
-            }
-            .project-image {
-                min-height: 120px;
-                max-height: 200px;
-            }
-            .event-card {
-                padding: 0.4rem 0;
-                gap: 0.6rem;
-            }
-            .event-date {
-                min-width: 70px;
-                font-size: 0.8rem;
-                padding: 0;
-            }
-            .event-title {
-                font-size: 0.9rem;
-            }
-            .event-description {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            nav a {
-                font-size: 1rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 0.6rem 0.8rem;
-            }
-            
-            nav ul {
-                gap: 0.5rem;
-            }
-            
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.5rem;
-            }
-            
-            .hero-title {
-                font-size: clamp(1.5rem, 7vw, 2rem);
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-                padding: 1rem;
-            }
-        }
-    </style>
+    <title>Didster | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of a veteran software engineer. Projects, History, Blog, and Experiments.">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a target="_blank" href="https://drive.google.com/file/d/1GN1aO60q-aMw0dF0TQvTiLx9hulEJS1y/view">Resume</a></li>
-        </ul>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">DR.</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="blog/">Blog</a></li> <!-- Points to existing blog dir -->
+                <li><a href="#lab">Lab</a></li>
+                <li><a href="#resume">Resume</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <section id="home">
-        <div class="rickroll-bg" id="rickroll-bg"></div>
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
-            <!-- Avatar removed as requested -->
-            <h1 class="hero-title">
-                Hey, I'm Dhruva.
-            </h1>
-            <p class="hero-subtitle">I code, I play, I build things for fun 🚀</p>
-            <p class="hero-description">
-                👋 Hey! I'm a programmer who loves to build cool stuff.<br>
-                Whether it's games, websites, backend stuff
-                or quirky side projects. <br><br>
-
-                I've studied Math + ECE at BITS Pilani, Goa campus.<br>
-                I also like to make music. <br>
+            <h1 class="hero-title">Hi There!, I'm Dhruva</h1>
+            <h2 class="hero-subtitle">Software Engineer & Game Developer</h2>
+            <p class="hero-oneliner">
+                I love tech, tinkering with systems, and staying curious. <br>
+                Always building, always learning.
             </p>
-            <div class="social-links">
-                <a class="social-link" href="https://github.com/didster42" target="_blank" rel="noopener" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.426 2.865 8.18 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.579.688.481C19.138 20.197 22 16.444 22 12.021 22 6.484 17.523 2 12 2z"/>
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-                <a class="social-link" href="blog/index.html" target="_blank" rel="noopener" aria-label="Blog">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4 4h16v2H4V4zm0 4h10v2H4V8zm0 4h16v2H4v-2zm0 4h10v2H4v-2z"/>
-                    </svg>
-                    <span>Blog</span>
-                </a>
-                <a class="social-link" href="mailto:dhruvraja24@gmail.com" target="_blank" rel="noopener" aria-label="Email">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
-                    </svg>
-                    <span>Email</span>
-                </a>
-                <a class="social-link" href="https://www.linkedin.com/in/dhruva-raja-a9543a1a9/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v4.75z"/>
-                    </svg>
-                    <span>LinkedIn</span>
-                </a>
-            </div>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">About</h2>
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-button"></div>
-                <div class="terminal-button"></div>
-                <div class="terminal-button"></div>
-                                        <span class="terminal-title">live_events_timeline.sh</span>
-            </div>
-            <div class="terminal-body" id="terminal">
-                <!-- Terminal content will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
+    <!-- History Section -->
+    <section id="history" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">About me and Context</h2>
 
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <!-- 
-                    Fix: Add style="object-fit:cover;object-position:top;" inline for extra safety,
-                    but the CSS above should handle it. 
-                -->
-                <img class="project-image" src="assets/bachat-final.png" alt="Mobile Game #1 Preview" style="object-fit:cover;object-position:top;" />
-                <div class="project-content">
-                    <h3 class="project-title">Bachat</h3>
-                    <p class="project-description">
-                        Application for automatic tracking and collation of UPI Payments. Users loved it. 
-                    </p>
-                    <a class="project-link" href="https://play.google.com/store/apps/details?id=game1" target="_blank" rel="noopener">
-                        View
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414l9-9zm1.414 1.414L5 13.414 6.586 15l8.707-8.707-1.586-1.586z"></path></svg>
-                    </a>
+            <div class="section-intro">
+                <p>
+                    I am a software engineer and game developer from Delhi, India. I have a <strong>Bachelors in
+                        Electronics
+                        and Communications Engineering</strong> and a <strong>Master of Science in Mathematics</strong>
+                    from <strong>BITS Pilani, Goa Campus</strong>.
+                    I've been programming for a while, I love it among other things like Music, Football and Movies.
+                </p>
+                <br>
+                <p>
+                    Here are some key checkpoints in my life till now.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <!-- Amazon -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Nov 2025</div>
+                    <div class="timeline-content">
+                        <h3>1 Year at Amazon!</h3>
+                        <h4>Software Development Engineer</h4>
+                        <p>
+                            Learnt a lot, overall a great year. Even travelled to the UAE to launch 2 hour
+                            deliveries in the UAE!
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <img class="project-image" src="assets/tunnel.png" alt="Mobile Game #2 Preview" />
-                <div class="project-content">
-                    <h3 class="project-title">Tunnel</h3>
-                    <p class="project-description">
-                        Second published mobile game featuring trippy gameplay and colours to mess with the player. Fun and infinite. 
-                    </p>
-                    <a class="project-link" href="#" target="_blank" rel="noopener">
-                        View
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414l9-9zm1.414 1.414L5 13.414 6.586 15l8.707-8.707-1.586-1.586z"></path></svg>
-                    </a>
+                <!-- Amazon -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Nov 2024</div>
+                    <div class="timeline-content">
+                        <h3>Amazon</h3>
+                        <h4>Software Development Engineer</h4>
+                        <p>Joined the last mile team building some scalable systems.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="project-card">
-                <img class="project-image" src="assets/squareninja.png" alt="Backend System Preview" />
-                <div class="project-content">
-                    <h3 class="project-title">Backend System</h3>
-                    <p class="project-description">
-                        First mobile game published featuring you as a square destroying an infinite triangle army. Good fun. 
-                    </p>
-                    <a class="project-link" href="#" target="_blank" rel="noopener">
-                        View
-                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414l9-9zm1.414 1.414L5 13.414 6.586 15l8.707-8.707-1.586-1.586z"></path></svg>
-                    </a>
+                <!-- INDMoney -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Sep 2024</div>
+                    <div class="timeline-content">
+                        <h3>INDMoney</h3>
+                        <h4>Software Engineer</h4>
+                        <p>
+                            Joined the profile and kyc team. Didn't stay long but met some really nice people.
+                            My first full time job not counting revoked offers :p
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Graduation -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Aug 2024</div>
+                    <div class="timeline-content">
+                        <h3>Graduation from BITS Goa</h3>
+                        <h4>Electronics and Math</h4>
+                        <p>
+                            I owe so much to this place. It is magic, truly.
+                            Can't imagine having gone anywhere else now.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Enhanced Neural Network Background Animation
-        class NeuralNetwork {
-            constructor() {
-                this.canvas = document.getElementById('neural-bg');
-                this.ctx = this.canvas.getContext('2d');
-                this.layers = [];
-                this.connections = [];
-                this.dataPulses = [];
-                this.time = 0;
-                
-                this.init();
-                this.animate();
-            }
-            
-            init() {
-                this.resize();
-                window.addEventListener('resize', () => this.resize());
-                
-                // Create 4 layers: Input, Hidden1, Hidden2, Output
-                const layerConfig = [
-                    { nodeCount: 6, name: 'input' },
-                    { nodeCount: 8, name: 'hidden1' },
-                    { nodeCount: 6, name: 'hidden2' },
-                    { nodeCount: 4, name: 'output' }
-                ];
-                
-                this.layers = layerConfig.map((config, layerIndex) => {
-                    const layer = {
-                        nodes: [],
-                        x: (layerIndex + 1) * (this.canvas.width / (layerConfig.length + 1)),
-                        name: config.name
-                    };
-                    
-                    // Create nodes for this layer
-                    for (let i = 0; i < config.nodeCount; i++) {
-                        const nodeSpacing = this.canvas.height / (config.nodeCount + 1);
-                        const y = (i + 1) * nodeSpacing;
-                        
-                        layer.nodes.push({
-                            x: layer.x,
-                            y: y,
-                            radius: 4,
-                            activation: 0,
-                            targetActivation: Math.random(),
-                            pulse: Math.random() * Math.PI * 2,
-                            pulseSpeed: Math.random() * 0.02 + 0.01,
-                            bias: (Math.random() - 0.5) * 0.3
-                        });
-                    }
-                    
-                    return layer;
-                });
-                
-                // Create connections between layers
-                for (let layerIndex = 0; layerIndex < this.layers.length - 1; layerIndex++) {
-                    const currentLayer = this.layers[layerIndex];
-                    const nextLayer = this.layers[layerIndex + 1];
-                    
-                    currentLayer.nodes.forEach(fromNode => {
-                        nextLayer.nodes.forEach(toNode => {
-                            this.connections.push({
-                                from: fromNode,
-                                to: toNode,
-                                weight: (Math.random() - 0.5) * 2,
-                                strength: Math.random() * 0.5 + 0.5,
-                                pulse: Math.random() * Math.PI * 2,
-                                pulseSpeed: Math.random() * 0.03 + 0.02
-                            });
-                        });
-                    });
-                }
-                
-                // Initialize data pulses
-                this.createDataPulse();
-            }
-            
-            createDataPulse() {
-                if (this.dataPulses.length < 3) {
-                    this.dataPulses.push({
-                        x: this.layers[0].x,
-                        y: this.layers[0].nodes[Math.floor(Math.random() * this.layers[0].nodes.length)].y,
-                        targetX: this.layers[this.layers.length - 1].x,
-                        targetY: this.layers[this.layers.length - 1].nodes[Math.floor(Math.random() * this.layers[this.layers.length - 1].nodes.length)].y,
-                        progress: 0,
-                        speed: 0.005,
-                        layer: 0,
-                        path: []
-                    });
-                }
-            }
-            
-            resize() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-                this.init(); // Reinitialize with new dimensions
-            }
-            
-            update() {
-                this.time += 0.016;
-                
-                // Update node activations
-                this.layers.forEach(layer => {
-                    layer.nodes.forEach(node => {
-                        node.activation += (node.targetActivation - node.activation) * 0.1;
-                        node.pulse += node.pulseSpeed;
-                        
-                        // Randomly change target activation
-                        if (Math.random() < 0.01) {
-                            node.targetActivation = Math.random();
-                        }
-                    });
-                });
-                
-                // Update connections
-                this.connections.forEach(conn => {
-                    conn.pulse += conn.pulseSpeed;
-                    // Slight weight changes to simulate learning
-                    conn.weight += (Math.random() - 0.5) * 0.01;
-                    conn.weight = Math.max(-2, Math.min(2, conn.weight));
-                });
-                
-                // Update data pulses
-                this.dataPulses.forEach((pulse, index) => {
-                    pulse.progress += pulse.speed;
-                    
-                    if (pulse.progress >= 1) {
-                        this.dataPulses.splice(index, 1);
-                        this.createDataPulse();
-                    }
-                });
-                
-                // Create new pulses occasionally
-                if (Math.random() < 0.02) {
-                    this.createDataPulse();
-                }
-            }
-            
-            draw() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-                // Draw layer backgrounds
-                this.layers.forEach((layer, layerIndex) => {
-                    const layerWidth = 120;
-                    const layerHeight = this.canvas.height;
-                    
-                    this.ctx.fillStyle = `rgba(255, 184, 108, 0.02)`;
-                    this.ctx.fillRect(layer.x - layerWidth/2, 0, layerWidth, layerHeight);
-                    
-                    // Layer label
-                    this.ctx.fillStyle = `rgba(255, 184, 108, 0.3)`;
-                    this.ctx.font = '12px var(--font-mono)';
-                    this.ctx.textAlign = 'center';
-                    this.ctx.fillText(layer.name.toUpperCase(), layer.x, 30);
-                });
-                
-                // Draw connections with weights
-                this.connections.forEach(conn => {
-                    const distance = Math.sqrt(
-                        Math.pow(conn.from.x - conn.to.x, 2) + 
-                        Math.pow(conn.from.y - conn.to.y, 2)
-                    );
-                    
-                    if (distance < 300) {
-                        const opacity = (1 - distance / 300) * 0.4;
-                        const pulse = Math.sin(conn.pulse) * 0.1 + 0.9;
-                        const lineWidth = Math.abs(conn.weight) * 0.5 + 0.5;
-                        
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(conn.from.x, conn.from.y);
-                        this.ctx.lineTo(conn.to.x, conn.to.y);
-                        this.ctx.strokeStyle = `rgba(255, 184, 108, ${opacity * pulse * conn.strength})`;
-                        this.ctx.lineWidth = lineWidth;
-                        this.ctx.stroke();
-                    }
-                });
-                
-                // Draw data pulses
-                this.dataPulses.forEach(pulse => {
-                    const currentX = pulse.x + (pulse.targetX - pulse.x) * pulse.progress;
-                    const currentY = pulse.y + (pulse.targetY - pulse.y) * pulse.progress;
-                    
-                    // Pulse glow
-                    this.ctx.beginPath();
-                    this.ctx.arc(currentX, currentY, 8, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(255, 121, 198, 0.3)`;
-                    this.ctx.fill();
-                    
-                    // Pulse core
-                    this.ctx.beginPath();
-                    this.ctx.arc(currentX, currentY, 4, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `rgba(255, 121, 198, 0.8)`;
-                    this.ctx.fill();
-                });
-                
-                // Draw nodes
-                this.layers.forEach(layer => {
-                    layer.nodes.forEach(node => {
-                        const pulse = Math.sin(node.pulse) * 0.3 + 0.7;
-                        const activation = node.activation * pulse;
-                        
-                        // Node glow based on activation
-                        this.ctx.beginPath();
-                        this.ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
-                        this.ctx.fillStyle = `rgba(255, 184, 108, ${0.1 * activation})`;
-                        this.ctx.fill();
-                        
-                        // Node core
-                        this.ctx.beginPath();
-                        this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                        this.ctx.fillStyle = `rgba(255, 184, 108, ${0.6 * activation + 0.2})`;
-                        this.ctx.fill();
-                        
-                        // Bias indicator
-                        if (Math.abs(node.bias) > 0.1) {
-                            this.ctx.beginPath();
-                            this.ctx.arc(node.x, node.y, node.radius * 0.5, 0, Math.PI * 2);
-                            this.ctx.fillStyle = `rgba(255, 121, 198, ${0.8 * Math.abs(node.bias)})`;
-                            this.ctx.fill();
-                        }
-                    });
-                });
-            }
-            
-            animate() {
-                this.update();
-                this.draw();
-                requestAnimationFrame(() => this.animate());
-            }
-        }
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Selected Projects</h2>
 
-        // Live Events Timeline
-        const liveEvents = [
-            { 
-                date: '2024', 
-                title: 'New Chapter! Full Time Employment at Amazon!', 
-                description: 'Started at Amazon as an SDE in Last Mile :D',
-                category: 'career'
-            },
-            { 
-                date: '2024', 
-                title: 'Got my first Job! INDMoney here I come :D', 
-                description: 'Joined the User / KYC team at INDMoney!',
-                category: 'career'
-            },
-            { 
-                date: '2024', 
-                title: 'Graduated from BITS Goa.', 
-                description: 'Joining this college was one of the greatest decisions I could ever make. Its crazy the intangibles learning I got here.',
-                category: 'career'
-            },
-            { 
-                date: '2024', 
-                title: 'Dabbling in ML at Wadhwani AI as an Intern!', 
-                description: 'Joined Wadhwani AI for a 6 month internship working on solutions for healthcare.',
-                category: 'career'
-            },
-            { 
-                date: '2023', 
-                title: 'Big Tech Intern at Amazon :O', 
-                description: 'Joined the Manifesting Team in Shiptech. ',
-                category: 'career'
-            },
-            { 
-                date: '2023', 
-                title: 'Started working with EvoReality', 
-                description: 'Made a couple of games for assessing cognitive function.',
-                category: 'career'
-            },
-            { 
-                date: '2022', 
-                title: 'Created Bachat to track my expenses.', 
-                description: 'Expense tracking with UPI was hard. Bachat made it easy. Proud.',
-                category: 'projects'
-            },
-            { 
-                date: '2021', 
-                title: '🎮 Published a couple of games', 
-                description: 'tunnel.apk • square_ninja.apk',
-                category: 'projects'
-            },
-            { 
-                date: '2019', 
-                title: 'Joined BITS Goa for their 5 year Msc + B.E Program', 
-                description: 'Ended up studying Math + Electronics. Enjoyed the process and found myself.',
-                category: 'projects'
-            },
-            { 
-                date: '2019', 
-                title: 'Graduated DPS VK', 
-                description: 'Grateful for the memories.',
-                category: 'projects'
-            },
-            { 
-                date: '2018', 
-                title: 'Became the President of my Computer Club - The Code Warriors', 
-                description: 'The club which taught me everything since I was 13. I led it and we did quite well at competitions doing everything. I ended up winning at quizzes, crosswords, web dev, A/V and robotics. Taught me an insane amount of things.',
-                category: 'projects'
-            },
-            { 
-                date: 'Ongoing', 
-                title: '🔧 GG Programming.', 
-                description: 'Building cool shit.',
-                category: 'passion'
-            }
-        ];
+            <div class="project-list">
+                <!-- Project 1: Bachat -->
+                <article class="project-row">
+                    <div class="project-thumbnail">
+                        <img src="assets/bachat-final.png" alt="Bachat App">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title-row">
+                            <h3>Bachat</h3>
+                            <a href="#" class="project-btn">View Project</a>
+                        </div>
+                        <p class="project-desc">
+                            Application for automatic tracking and collation of UPI Payments. Users loved it.
+                        </p>
+                        <ul class="tech-tags">
+                            <li>Flutter</li>
+                            <li>Firebase</li>
+                            <li>Dart</li>
+                        </ul>
+                    </div>
+                </article>
 
-        function createEventCard(event, index) {
-            const div = document.createElement('div');
-            div.className = 'event-card';
-            div.style.animationDelay = `${index * 0.2}s`;
+                <!-- Project 2: Square Ninja -->
+                <article class="project-row">
+                    <div class="project-thumbnail">
+                        <!-- Using object-position to focus on gameplay if needed -->
+                        <img src="assets/squareninja.png" alt="Square Ninja">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title-row">
+                            <h3>Square Ninja</h3>
+                            <a href="#" class="project-btn">View Project</a>
+                        </div>
+                        <p class="project-desc">
+                            First mobile game published featuring you as a square destroying an infinite triangle army.
+                            Good fun.
+                        </p>
+                        <ul class="tech-tags">
+                            <li>Unity</li>
+                            <li>C#</li>
+                            <li>Game Design</li>
+                        </ul>
+                    </div>
+                </article>
 
-            // Format based on category for terminal-like appearance
-            let prefix = '';
-            let dateColor = 'var(--fun-accent)';
-            
-            if (event.category === 'career') {
-                prefix = '💼';
-            } else if (event.category === 'projects') {
-                prefix = '🎮';
-            } else if (event.category === 'passion') {
-                prefix = '🔧';
-            }
+                <!-- Project 3: Tunnel -->
+                <article class="project-row">
+                    <div class="project-thumbnail">
+                        <img src="assets/tunnel.png" alt="Tunnel Visualizer">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title-row">
+                            <h3>Tunnel</h3>
+                            <a href="#" class="project-btn">View Project</a>
+                        </div>
+                        <p class="project-desc">
+                            Second published mobile game featuring trippy gameplay and colours to mess with the player.
+                            Fun and infinite.
+                        </p>
+                        <ul class="tech-tags">
+                            <li>Unity</li>
+                            <li>C#</li>
+                            <li>Game Design</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-            div.innerHTML = `
-                <div class="event-date">${event.date}</div>
-                <div class="event-content">
-                    <div class="event-title">${prefix} ${event.title}</div>
-                    <div class="event-description">→ ${event.description}</div>
-                </div>
-            `;
+    <!-- Blog Section -->
+    <section id="blog" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
 
-            return div;
-        }
+            <div class="blog-editorial-list">
+                <!-- Article 1 -->
+                <a href="blog/bean-wars-showdown.html" class="blog-entry">
+                    <div class="blog-meta">
+                        <span class="meta-year">2022</span>
+                        <span class="meta-date">Oct 20</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-headline">Bean Wars Showdown</h3>
+                        <p class="blog-subtitle">Designing the next big game mechanics.</p>
+                    </div>
+                    <div class="blog-read-btn">Read Article</div>
+                </a>
 
-        // Populate events timeline
-        const terminal = document.getElementById('terminal');
-        
-        // Add terminal-style header
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'terminal-line';
-        headerDiv.innerHTML = `<span class="terminal-prompt">➜</span> <span class="terminal-command">cat career_timeline.txt</span>`;
-        terminal.appendChild(headerDiv);
-        
-        // Add separator line
-        const separatorDiv = document.createElement('div');
-        separatorDiv.className = 'terminal-line';
-        separatorDiv.innerHTML = `<div class="terminal-output">Loading timeline...</div>`;
-        terminal.appendChild(separatorDiv);
-        
-        // Add events
-        liveEvents.forEach((event, index) => {
-            terminal.appendChild(createEventCard(event, index));
-        });
-        
-        // Add terminal footer
-        const footerDiv = document.createElement('div');
-        footerDiv.className = 'terminal-line';
-        footerDiv.innerHTML = `<span class="terminal-prompt">➜</span> <span class="terminal-command">echo "Timeline loaded successfully!"</span>`;
-        terminal.appendChild(footerDiv);
-        
-        // Add blinking cursor
-        const cursorDiv = document.createElement('div');
-        cursorDiv.className = 'terminal-line';
-        cursorDiv.innerHTML = `<span class="terminal-prompt">➜</span> <span class="terminal-cursor"></span>`;
-        terminal.appendChild(cursorDiv);
+                <!-- Article 2 -->
+                <a href="blog/stanley-parable.html" class="blog-entry">
+                    <div class="blog-meta">
+                        <span class="meta-year">2021</span>
+                        <span class="meta-date">Jul 29</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-headline">The Stanley Parable</h3>
+                        <p class="blog-subtitle">A deep dive into narrative design.</p>
+                    </div>
+                    <div class="blog-read-btn">Read Article</div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        // Smooth scrolling for navigation (internal links only)
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                
-                // Check if it's an internal link (starts with #)
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-                // External links (like resume) will work normally without preventDefault
-            });
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'var(--bg-nav-scrolled)';
-            } else {
-                nav.style.background = 'var(--bg-nav)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Rick Roll Background Effect (Home Section Only)
-        class RickRollBackground {
-            constructor() {
-                this.element = document.getElementById('rickroll-bg');
-                this.lyrics = [
-                    "We're no strangers to love",
-                    "You know the rules and so do I",
-                    "A full commitment's what I'm thinking of",
-                    "You wouldn't get this from any other guy",
-                    "",
-                    "I just wanna tell you how I'm feeling",
-                    "Gotta make you understand",
-                    "",
-                    "Never gonna give you up",
-                    "Never gonna let you down",
-                    "Never gonna run around and desert you",
-                    "Never gonna make you cry",
-                    "Never gonna say goodbye",
-                    "Never gonna tell a lie and hurt you",
-                    "",
-                    "We've known each other for so long",
-                    "Your heart's been aching but you're too shy to say it",
-                    "Inside we both know what's been going on",
-                    "We know the game and we're gonna play it",
-                    "",
-                    "And if you ask me how I'm feeling",
-                    "Don't tell me you're too blind to see",
-                    "",
-                    "Never gonna give you up",
-                    "Never gonna let you down",
-                    "Never gonna run around and desert you",
-                    "Never gonna make you cry",
-                    "Never gonna say goodbye",
-                    "Never gonna tell a lie and hurt you",
-                    "",
-                    "Never gonna give you up",
-                    "Never gonna let you down",
-                    "Never gonna run around and desert you",
-                    "Never gonna make you cry",
-                    "Never gonna say goodbye",
-                    "Never gonna tell a lie and hurt you",
-                    "",
-                    "Ooh (give you up)",
-                    "Ooh (give you up)",
-                    "Ooh",
-                    "Never gonna give, never gonna give",
-                    "(Give you up)",
-                    "Ooh",
-                    "Never gonna give, never gonna give",
-                    "(Give you up)",
-                    "",
-                    "We've known each other for so long",
-                    "Your heart's been aching but you're too shy to say it",
-                    "Inside we both know what's been going on",
-                    "We know the game and we're gonna play it",
-                    "",
-                    "I just wanna tell you how I'm feeling",
-                    "Gotta make you understand",
-                    "",
-                    "Never gonna give you up",
-                    "Never gonna let you down",
-                    "Never gonna run around and desert you",
-                    "Never gonna make you cry",
-                    "Never gonna say goodbye",
-                    "Never gonna tell a lie and hurt you",
-                    "",
-                    "Never gonna give you up",
-                    "Never gonna let you down",
-                    "Never gonna run around and desert you",
-                    "Never gonna make you cry",
-                    "Never gonna say goodbye",
-                    "Never gonna tell a lie and hurt you"
-                ];
-                this.currentLine = 0;
-                this.currentChar = 0;
-                this.typingSpeed = 30; // ms per character
-                this.lineDelay = 1500; // ms between lines
-                this.scrollSpeed = 0.02; // percentage per frame for smooth scrolling
-                this.scrollPosition = 0;
-                
-                this.start();
-            }
-            
-            start() {
-                this.startScrolling();
-            }
-            
-            startScrolling() {
-                // Start the typing and scrolling system
-                this.startTypingAndScrolling();
-            }
-            
-            startTypingAndScrolling() {
-                const animate = () => {
-                    // Move each line element up individually
-                    const lines = this.element.querySelectorAll('.rickroll-line');
-                    lines.forEach((line, index) => {
-                        const currentTop = parseFloat(line.style.top) || 50;
-                        line.style.top = (currentTop - this.scrollSpeed) + '%';
-                    });
-                    
-                    // Clean up lines that are above the visible area
-                    this.cleanupOffscreenLines();
-                    
-                    requestAnimationFrame(animate);
-                };
-                requestAnimationFrame(animate);
-                
-                // Start typing the first line
-                this.typeNextLine();
-            }
-            
-            cleanupOffscreenLines() {
-                // Remove lines that are above the visible area to save memory
-                const lines = this.element.querySelectorAll('.rickroll-line');
-                lines.forEach((line) => {
-                    const currentTop = parseFloat(line.style.top) || 50;
-                    if (currentTop < -10) { // Remove lines that are 10% above the screen
-                        line.remove();
-                    }
-                });
-            }
-            
-            typeNextLine() {
-                if (this.currentLine >= this.lyrics.length) {
-                    // Loop back to beginning for infinite loop
-                    this.currentLine = 0;
-                    this.currentChar = 0;
-                }
-                
-                const line = this.lyrics[this.currentLine];
-                if (line === '') {
-                    // Empty line, just add a line break
-                    this.addLineElement('');
-                    this.currentLine++;
-                    setTimeout(() => this.typeNextLine(), this.lineDelay);
-                    return;
-                }
-                
-                this.typeLine(line);
-            }
-            
-            typeLine(line) {
-                if (this.currentChar < line.length) {
-                    // Create or update the current line element
-                    if (this.currentChar === 0) {
-                        this.addLineElement('');
-                    }
-                    
-                    const currentLineElement = this.element.lastElementChild;
-                    if (currentLineElement) {
-                        currentLineElement.textContent = line.substring(0, this.currentChar + 1);
-                    }
-                    
-                    this.currentChar++;
-                    setTimeout(() => this.typeLine(line), this.typingSpeed);
-                } else {
-                    // Line complete, move to next
-                    this.currentLine++;
-                    this.currentChar = 0;
-                    setTimeout(() => this.typeNextLine(), this.lineDelay);
-                }
-            }
-            
-            addLineElement(text) {
-                const lineElement = document.createElement('div');
-                lineElement.className = 'rickroll-line';
-                lineElement.textContent = text;
-                lineElement.style.position = 'absolute';
-                lineElement.style.left = '40px';
-                lineElement.style.right = '40px';
-                lineElement.style.textAlign = 'left';
-                lineElement.style.color = 'rgba(124, 141, 181, 0.25)';
-                lineElement.style.fontFamily = 'var(--font-mono)';
-                lineElement.style.fontSize = '1rem';
-                lineElement.style.lineHeight = '1.5';
-                lineElement.style.whiteSpace = 'pre-wrap';
-                lineElement.style.pointerEvents = 'none';
-                lineElement.style.zIndex = '-1';
-                lineElement.style.fontWeight = '400';
-                
-                // Position at center of screen initially
-                lineElement.style.top = '50%';
-                lineElement.style.transform = 'translateY(-50%)';
-                
-                this.element.appendChild(lineElement);
-            }
-        }
-
-        // Initialize Rick Roll background when page loads
-        new RickRollBackground();
-    </script>
+    <script src="js/background.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

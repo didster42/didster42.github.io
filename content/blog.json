@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "bean-wars-showdown",
+    "hash": "c4f8b1a2",
+    "title": "Bean Wars Showdown",
+    "subtitle": "designing the next big game mechanic",
+    "date": "2022-10-20",
+    "tags": ["Game Design", "Unity"]
+  },
+  {
+    "slug": "stanley-parable",
+    "hash": "e7d3920f",
+    "title": "The Stanley Parable",
+    "subtitle": "a deep dive into narrative design",
+    "date": "2021-07-29",
+    "tags": ["Narrative Design", "Game Design"]
+  }
+]

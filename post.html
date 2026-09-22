@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Dhruva Raja — dhruva.log</title>
+  <title>Post — dhruva.log</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Dhruva Raja — Software Engineer &amp; Game Developer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
@@ -16,14 +15,14 @@
   <header class="topbar">
     <span class="topbar-title">~/dhruva.log</span>
     <nav aria-label="Main navigation">
-      <a class="navlink" href="#intro">intro</a>
-      <a class="navlink" href="#blog">blog</a>
-      <a class="navlink" href="#projects">projects</a>
-      <a class="navlink" href="#timeline">timeline</a>
+      <a class="navlink" href="index.html#intro">intro</a>
+      <a class="navlink" href="index.html#blog">blog</a>
+      <a class="navlink" href="index.html#projects">projects</a>
+      <a class="navlink" href="index.html#timeline">timeline</a>
     </nav>
   </header>
 
-  <main id="pane" class="pane" aria-label="Portfolio content">
+  <main id="pane" class="pane" aria-label="Blog post content">
     <noscript>
       <p style="color: var(--fg); padding: 2rem; line-height: 1.8;">
         JavaScript is required to render this page.
@@ -32,13 +31,13 @@
   </main>
 
   <footer class="statusbar" aria-label="Status bar">
-    <span>dhruva.log</span>
+    <span id="post-filename">dhruva.log</span>
     <span id="line-count">loading&hellip;</span>
-    <span>:q to quit &nbsp;&middot;&nbsp; / to search &nbsp;&middot;&nbsp; <a href="#" aria-label="Resume (coming soon)">resume.pdf</a></span>
+    <span><a href="index.html">&larr; back to log</a></span>
   </footer>
 
 </div>
 <script src="js/content.js"></script>
-<script src="js/pager.js"></script>
+<script src="js/post.js"></script>
 </body>
 </html>

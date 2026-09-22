@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "bachat",
+    "name": "bachat",
+    "desc": "UPI payment auto-tracker, users loved it.",
+    "tags": ["Flutter", "Firebase", "Dart"]
+  },
+  {
+    "slug": "square-ninja",
+    "name": "square-ninja",
+    "desc": "Square vs. infinite triangle army. First published mobile game.",
+    "tags": ["Unity", "C#", "Game Design"]
+  },
+  {
+    "slug": "tunnel",
+    "name": "tunnel",
+    "desc": "Trippy, colourful, infinite. Second published mobile game.",
+    "tags": ["Unity", "C#", "Game Design"]
+  }
+]

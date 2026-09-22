@@ -21,6 +21,18 @@ const CONTENT = {
 
   blog: [
     {
+      slug: "hello-world-x2",
+      hash: 'd1cc6aac',
+      title: "Hello World x2",
+      subtitle: "I'm trying to create again.",
+      date: '2026-09-22',
+      tags: ["Random", "Misc."],
+      body: [
+        { type: 'h2', text: "Hello World x2" },
+        { type: 'p', text: "Its been a while. I haven't written a blog post in years but I really want to start again. The world has changed in an incredible manner. I don't know yet whether all this change is a good or a bad thing. I'll write more over the next few weeks with my newest experiments." },
+      ],
+    },
+    {
       slug: 'bean-wars-showdown',
       hash: 'c4f8b1a2',
       title: 'Bean Wars Showdown',

@@ -24,6 +24,9 @@
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
+  // Escaped text with **bold** rendered
+  const fmt = str => esc(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
   if (!slug) {
     pane.innerHTML = row(`<span class="meta">error: no slug specified.</span> <a href="index.html">&larr; back</a>`);
     return;
@@ -55,16 +58,16 @@
     switch (block.type) {
       case 'h2':
         html += erow();
-        html += row(`<span class="post-h">${esc(block.text)}</span>`);
+        html += row(`<span class="post-h">${fmt(block.text)}</span>`);
         break;
       case 'blockquote':
         html += erow();
-        html += row(esc(block.text), 'rc-bq');
+        html += row(fmt(block.text), 'rc-bq');
         html += erow();
         break;
       case 'p':
       default:
-        html += row(esc(block.text), 'rc-indent');
+        html += row(fmt(block.text), 'rc-indent');
         break;
     }
   });

@@ -21,6 +21,29 @@ const CONTENT = {
 
   blog: [
     {
+      slug: "i-m-feeling-super-pumped",
+      hash: 'ebe94ddb',
+      title: "I'm feeling SUPER PUMPED!!",
+      subtitle: "I'm back to believing.",
+      date: '2026-10-31',
+      tags: ["Books", "Reading", "Nostalgia", "TechCircuit"],
+      body: [
+        { type: 'p', text: "I still find it really hard to swallow that it's been 10 years since 2016. Back in 2016, I was in the tenth grade. I was obsessed with reading and understanding everything tech around me, and I used to write some sucky web code. I'm truly surprised with how things have changed in 10 years. I'm now working at one of the big tech companies which I used to read and obsess over. While I haven't created one of my own yet, it's truly amazing to look back at how times have changed." },
+        { type: 'p', text: "Back when I was in the tenth grade, I used to go for quizzing and web design competitions representing the computer club of my school, the Code Warriors of DPS VK in New Delhi. I started quizzing in class 9th but I wasn't able to qualify for finals rounds at these competitions. The competition was truly stacked, DPS Noida, RKP, Rohini, Dwarka and MSBK were all great, and competing with them would take a lot of prep (something which I wasn't really afraid of)." },
+        { type: 'p', text: "Midway through class 10, me and my teammate Rohan started finding our footing and started securing podium finishes at these competitions, we were psyched for the last event of the year which was Exun at DPS RKP. The people at these tech competitions were amazing people, and I'm glad that they became good friends, I look back at those times with a lot of nostalgia." },
+        { type: 'p', text: "My brother that year had interned at Uber, and secured a pre placement offer at their offices in San Francisco. He had gifted me a black Uber jacket which I was extremely fond of. I used to wear that thing everywhere, especially at all the tech competitions I went to. A happy coincidence was also there where I started winning more at tech events when I wore the jacket, so I continued wearing it everywhere." },
+        { type: 'p', text: "The Uber jacket's luck did not disappoint, me and Rohan finished second in the Junior quiz helping our school win the overall trophy at Exun yet again. It also became quite established within our circles that I was the guy in the black Uber jacket. I'd proceed to wear that jacket for the next few years whenever I wanted to compete at any event." },
+        { type: 'p', text: "In those years, Uber would keep making its way into the news, Uber's acquisition of Otto (the whole Anthony Levandowski thing), the Susan Fowler blog post, the news about Greyball and so on. I used to be a heavy reader of the news articles from that time, and was updated with all this information." },
+        { type: 'p', text: "Back in 2022 or 2023 maybe, my brother showed me the trailer for a new Uber TV show coming out. The trailer looked good, but I never got around to watching the TV show." },
+        { type: 'p', text: "Fast forward to 2026, I was doing some idle googling, and I came across the book again - Super Pumped - The Battle for Uber. I thought, \"Why not, let me read it now\"." },
+        { type: 'p', text: "I found the book absolutely amazing. When you generally read about these things through the news, it's simply reported to you, the book had a very detailed account of everything that happened, the key characters involved and told the story of the company brilliantly. What stuck with me was one of their core principles **Super Pumped**." },
+        { type: 'p', text: "The whole story, the excitement, the drive. I absolutely loved every bit of it. I believe that to be great at anything, you need to be, or actually YOU HAVE TO BE SUPER PUMPED. End of discussion. I 100% agree with that." },
+        { type: 'p', text: "I loved the book so much I watched the entire TV show as well, practically giddy (I loved it as well)." },
+        { type: 'p', text: "Right now this post won't have a lot of detail about what my comments on the book were, however I simply wanted to write about being Super Pumped, how I believe people are losing their abilities to be super pumped, and how if you are super pumped, I hope no one takes it away from you." },
+        { type: 'p', text: "I'll write more comments and throwbacks to the book in the future, but for now, I've really really enjoyed this book, and wanted to write a bit about what Uber was and is to me." },
+      ],
+    },
+    {
       slug: "hello-world-x2",
       hash: 'd1cc6aac',
       title: "Hello World x2",

@@ -19,6 +19,8 @@ const CONTENT = {
     ],
   },
 
+  blogIntro: 'stream of consciousness, dumped here. barely edited.',
+
   blog: [
     {
       slug: "i-m-feeling-super-pumped",

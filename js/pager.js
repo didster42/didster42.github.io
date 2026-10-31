@@ -41,6 +41,7 @@
 
   // ── BLOG ───────────────────────────────────────────────
   html += sec('blog', 'BLOG');
+  if (CONTENT.blogIntro) html += row(`<span class="hash">#</span> ${esc(CONTENT.blogIntro)}`);
   html += row(`<span class="kw">tree</span> <span class="meta">blog/</span>`);
   CONTENT.blog.forEach(post => {
     html += row(

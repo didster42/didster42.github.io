@@ -54,7 +54,8 @@
   html += erow();
 
   // Body blocks
-  post.body.forEach(block => {
+  post.body.forEach((block, i) => {
+    const prev = post.body[i - 1];
     switch (block.type) {
       case 'h2':
         html += erow();
@@ -67,6 +68,8 @@
         break;
       case 'p':
       default:
+        // Blank line between consecutive paragraphs
+        if (prev && prev.type !== 'h2' && prev.type !== 'blockquote') html += erow();
         html += row(fmt(block.text), 'rc-indent');
         break;
     }
